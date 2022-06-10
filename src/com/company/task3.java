@@ -14,6 +14,7 @@ import java.io.*;
         import java.nio.file.Paths;
         import java.nio.file.StandardOpenOption;
         import java.util.Arrays;
+import java.util.Scanner;
 
 public class task3 {
     private static void log(String str, int onScr) throws IOException {
@@ -21,6 +22,33 @@ public class task3 {
         if (onScr != 0) onScreen = true;
         else onScreen = false;
         Logger.getLogger(onScreen).log(str);
+    }
+
+    public static int inputLog(Scanner scanner) throws IOException {
+        System.out.print("Выбор места логирования: 0 - в файл, 1 - на экран  ");
+        int onScr = scanner.nextInt();
+
+        log(" Запущен метод inputLog(): Выбор места логирования: 0 - в файл, 1 - на экран \"  " + onScr, onScr);
+        return onScr;
+    }
+
+    public static String inputNum(Scanner scanner, int onScr) throws IOException {
+
+        System.out.print("Введите числа:  ");
+        String strLine = scanner.nextLine();
+        strLine = scanner.nextLine();
+
+        log(" Запущен метод inputNum(): Ввод чисел: " + strLine + "\"  ", onScr);
+        return strLine;
+    }
+
+    public static String inputNameFile(Scanner scanner, int onScr) throws IOException {
+
+        System.out.print("Введите путь и имя файла:  ");
+        String strLine = scanner.nextLine();
+
+        log(" Запущен метод inputNameFile() для ввода имени файла для сохранения чисел:  " + strLine + "\"  ", onScr);
+        return strLine;
     }
 
     public static void writeFile(String str, String path, int onScr) throws IOException {
@@ -40,13 +68,13 @@ public class task3 {
         for (int i = 0; i < arrInt.length; i++) {
             arrInt[i] = Integer.parseInt(strArr[i]);
         }
-        log(" Запущен метод getIntFromFile: считывает строку  \"" + str + "\"  из файла  " + path, onScr);
+        log(" Запущен метод getIntFromFile(): считывает строку  \"" + str + "\"  из файла  " + path, onScr);
         return arrInt;
     }
 
-    public static void print(int[] arr, int onScr) throws IOException {
+    public static void printScreen(int[] arr, int onScr) throws IOException {
         System.out.println(Arrays.toString(arr));
-        log(" Запущен метод print: отображает на экран введенные числа", onScr);
+        log(" Запущен метод printScreen(): отображает на экран введенные числа", onScr);
     }
 
     private static void writeMinMax(String minMax, int value, String path) throws IOException {
@@ -61,8 +89,9 @@ public class task3 {
                 max = arr[i];
             }
         }
+        log(" Запущен метод min(): находит максимум " + max, onScr);
         writeMinMax("max", max, path);
-        log(" Запущен метод max: находит максимум и записывает в файл  " + path, onScr);
+        log(" Запущен метод writeMinMax(): записывает максимум " + max + " в файл  " + path, onScr);
     }
 
     public static void min(int[] arr, String path, int onScr) throws IOException {
@@ -73,8 +102,9 @@ public class task3 {
                 min = arr[i];
             }
         }
+        log(" Запущен метод min(): находит минимум " + min, onScr);
         writeMinMax("min", min, path);
-        log(" Запущен метод min: находит минимум и записывает в файл  " + path, onScr);
+        log(" Запущен метод writeMinMax(): записывает минимум " + min + " в файл  " + path, onScr);
     }
 
     public static void printMinMax(String path, int onScr) throws IOException {
@@ -88,6 +118,7 @@ public class task3 {
                 System.out.println("Минимум = " + str.split(" ")[1]);
             }
         }
-        log(" Запущен метод minMax: считывает максимум и минимум из файла  " + path + "  и выводит на экран ", onScr);
+        log(" Запущен метод minMax(): считывает максимум и минимум из файла  " + path + "  и выводит на экран ", onScr);
     }
+
 }

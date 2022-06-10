@@ -6,26 +6,24 @@ public class Main {
 
             public static void main(String[] args) throws IOException {
 
-               Scanner scanner = new Scanner(System.in);
+             Scanner scanner = new Scanner(System.in);
 
-                System.out.print("Введите числа:  ");
-                String strLine = scanner.nextLine();
+             int onScr = task3.inputLog(scanner);
 
-                System.out.print("Введите путь и имя файла:  ");
-                String path = scanner.nextLine();
+             String strLine = task3.inputNum(scanner, onScr);
 
-                System.out.print("Выбор места логирования: 0 - в файл, 1 - на экран:  ");
-                int  onScr = scanner.nextInt();
-                scanner.close();
+             String path = task3.inputNameFile(scanner, onScr);
+             scanner.close();
+             scanner.close();
 
-                task3.writeFile(strLine,path,onScr);
+             task3.writeFile(strLine, path, onScr);
 
-                int[] arr = task3.getIntFromFile(path, onScr);
-                task3.print(arr, onScr);
+             int[] arr = task3.getIntFromFile(path, onScr);
+             task3.printScreen(arr, onScr);
 
-                task3.max(arr, path, onScr);
-                task3.min(arr, path, onScr);
-                task3.printMinMax(path, onScr);
+             task3.max(arr, path, onScr);
+             task3.min(arr, path, onScr);
+             task3.printMinMax(path, onScr);
             }
 
 
