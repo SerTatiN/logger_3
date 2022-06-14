@@ -14,7 +14,6 @@ public class Main {
 
              String path = task3.inputNameFile(scanner, onScr);
              scanner.close();
-             scanner.close();
 
              task3.writeFile(strLine, path, onScr);
 
